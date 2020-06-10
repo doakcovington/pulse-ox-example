@@ -11,16 +11,26 @@ const TableHeader = () => {
     )
 }
 
-const TableBody = () => {
-    return <tbody />
+const TableBody = props => {
+    const rows  = props.chartData.map((row, index) => {
+        return (
+            <tr key={index}>
+                <td>{row.date}</td>
+                <td>{row.oxygen}</td>
+            </tr>
+        )
+    })
+    return <tbody>{rows}</tbody>
 }
 
 class Table extends Component {
     render() {
+        const { chartData } = this.props
+
         return (
             <table>
                 <TableHeader />
-                <TableBody />
+                <TableBody chartData={ chartData }/>
             </table>
         )
 
