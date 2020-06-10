@@ -25,13 +25,13 @@ const TableBody = props => {
 }
 
 const Table = (props) => {
-    const { readingData, removeReading } = props
-    return (
-        <table>
-            <TableHeader />
-            <TableBody readingData={ readingData } removeReading={removeReading} />
-        </table>
-    )
+    const { readingData, removeReading } = props;
+        return (
+            <table>
+                <TableHeader />
+                <TableBody readingData={ readingData } removeReading={removeReading} />
+            </table>
+        )
 }
 
 export default Table;

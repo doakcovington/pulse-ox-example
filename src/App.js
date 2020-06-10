@@ -26,7 +26,7 @@ class App extends Component {
 
         return (
             <div className="container">
-                <Table  readingData={readings} removeChart={this.removeReading} />
+                <Table  readingData={readings} removeReading={this.removeReading} />
                 <Form handleSubmit={this.handleSubmit}/>
             </div>
         )
