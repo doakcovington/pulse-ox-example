@@ -1,32 +1,35 @@
 import React, { Component } from 'react'
 import Table from './Table'
+import Form from './Form'
 
 class App extends Component {
-    render () {
-        const chart = [
-            {
-                date: '6/7/2020',
-                oxygen: 98,
-            },
-            {
-                date: '6/8/2020',
-                oxygen: 97,
-            },
-            {
-                date: '6/9/2020',
-                oxygen: 96,
-            },
-            {
-                date: '6/10/2020',
-                oxygen: 92,
-            },
-        ]
+    state = {
+        readings: [],
+    };
 
-      return (
-        <div className="container">
-          <Table  chartData={chart}/>
-        </div>
-      )
+    removeReading = index => {
+        const { readings } = this.state;
+    
+        this.setState({
+            readings: readings.filter((reading, i) => { 
+                return i !== index;
+            })
+        });
+    }
+
+    handleSubmit = reading => {
+        this.setState({ readings: [...this.state.readings, reading] })
+    }
+
+    render () {
+        const { readings } = this.state
+
+        return (
+            <div className="container">
+                <Table  readingData={readings} removeChart={this.removeReading} />
+                <Form handleSubmit={this.handleSubmit}/>
+            </div>
+        )
     }
 }
 

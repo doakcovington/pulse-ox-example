@@ -12,29 +12,26 @@ const TableHeader = () => {
 }
 
 const TableBody = props => {
-    const rows  = props.chartData.map((row, index) => {
+    const rows  = props.readingData.map((row, index) => {
         return (
             <tr key={index}>
                 <td>{row.date}</td>
                 <td>{row.oxygen}</td>
+                <td><button onClick={() => props.removeReading(index)}>Delete</button></td>
             </tr>
         )
     })
     return <tbody>{rows}</tbody>
 }
 
-class Table extends Component {
-    render() {
-        const { chartData } = this.props
-
-        return (
-            <table>
-                <TableHeader />
-                <TableBody chartData={ chartData }/>
-            </table>
-        )
-
-    }
+const Table = (props) => {
+    const { readingData, removeReading } = props
+    return (
+        <table>
+            <TableHeader />
+            <TableBody readingData={ readingData } removeReading={removeReading} />
+        </table>
+    )
 }
 
-export default Table
+export default Table;

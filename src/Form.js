@@ -1,26 +1,37 @@
 import React, { Component } from 'react'
 
 class Form extends Component {
-    initialState = {
-        date: '',
-        oxygen: '',
-    }
+    constructor(props) {
+        super(props);
+        
+        this.initialState = {
+            name: '',
+            job: ''
+        };
 
-    state = this.initialState
+        this.state = this.initialState;
+    }
 
     handleChange = event => {
         const { name, value } = event.target
-
+      
         this.setState({
-            [name]: value,
+          [name]: value,
         })
+      }
+
+    onFormSubmit = (event) => {
+        event.preventDefault(); //prevents page refresh
+
+        this.props.handleSubmit(this.state)
+        this.setState(this.initialState)
     }
 
     render() {
         const { date, oxygen } = this.state;
 
         return (
-            <form>
+            <form onSubmit={this.onFormSubmit}>
                 <label htmlFor="date">Date</label>
                 <input
                     type="text"
@@ -35,6 +46,7 @@ class Form extends Component {
                     id="oxygen"
                     value={oxygen}
                     onChange={this.handleChange} />
+                <button type="submit">Submit</button>
             </form>
         )
     }
