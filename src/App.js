@@ -1,11 +1,32 @@
 import React, { Component } from 'react'
 import Table from './Table'
 import Form from './Form'
+import ls from 'local-storage'
 
 class App extends Component {
     state = {
         readings: [],
     };
+
+    componentWillMount(){
+        localStorage.getItem('readings') && this.setState({
+            readings: JSON.parse(localStorage.getItem('readings')),
+            isLoading: false 
+        })
+    }
+
+    componentDidMount(){
+        //fires after the initial render
+        this.fetchData();
+    }
+
+    fetchData(){
+
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        localStorage.setItem('readings', JSON.stringify(nextState.readings));
+    }
 
     removeReading = index => {
         const { readings } = this.state;
