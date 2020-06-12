@@ -14,16 +14,7 @@ class App extends Component {
             isLoading: false 
         })
     }
-
-    componentDidMount(){
-        //fires after the initial render
-        this.fetchData();
-    }
-
-    fetchData(){
-
-    }
-
+    
     componentWillUpdate(nextProps, nextState) {
         localStorage.setItem('readings', JSON.stringify(nextState.readings));
     }
