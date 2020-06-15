@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button';
 
 const TableHeader = () => {
     return (
@@ -7,6 +8,7 @@ const TableHeader = () => {
             <tr>
                 <th>Date:</th>
                 <th>Oxygen:</th>
+                <th>Delete:</th>
             </tr>
         </thead>
     )
@@ -18,7 +20,7 @@ const TableBody = props => {
             <tr key={index}>
                 <td>{row.date}</td>
                 <td>{row.oxygen}</td>
-                <td><button onClick={() => props.removeReading(index)}>Delete</button></td>
+                <td><Button variant="danger" onClick={() => props.removeReading(index)}>Delete</Button></td>
             </tr>
         )
     })

@@ -5,6 +5,7 @@ import Info from './Info'
 import ls from 'local-storage'
 import './index.css'
 import Container from 'react-bootstrap/Container';
+import Jumbotron from 'react-bootstrap/Jumbotron'
 
 
 class App extends Component {
@@ -46,10 +47,11 @@ class App extends Component {
         const { readings } = this.state
         return (
             <Container className="container">
-                <Table  readingData={readings} removeReading={this.removeReading} />
+                <h1>Pulse Ox</h1>
                 <UserForm 
                     handleSubmit={this.handleSubmit}
                 />
+                <Table  readingData={readings} removeReading={this.removeReading} />
                 <Info />
             </Container>
         )
