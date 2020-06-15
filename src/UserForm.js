@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import Button from 'react-bootstrap/Button';
 
-class Form extends Component {
+class UserForm extends Component {
     constructor(props) {
         super(props);
         
@@ -41,15 +42,15 @@ class Form extends Component {
                     onChange={this.handleChange} />
                 <label htmlFor="oxygen">Oxygen</label>
                 <input 
-                    type="text"
+                    type="number"
                     name="oxygen"
                     id="oxygen"
                     value={oxygen}
                     onChange={this.handleChange} />
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
             </form>
         )
     }
 }
 
-export default Form;
+export default UserForm;

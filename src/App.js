@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Table from './Table'
-import Form from './Form'
+import UserForm from './UserForm'
 import Info from './Info'
 import ls from 'local-storage'
 import './index.css'
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
+
 
 class App extends Component {
     state = {
@@ -45,13 +45,13 @@ class App extends Component {
     render () {
         const { readings } = this.state
         return (
-            <div className="container">
+            <Container className="container">
                 <Table  readingData={readings} removeReading={this.removeReading} />
-                <Form 
+                <UserForm 
                     handleSubmit={this.handleSubmit}
                 />
                 <Info />
-            </div>
+            </Container>
         )
     }
 }
