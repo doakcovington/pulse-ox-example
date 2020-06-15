@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Table from 'react-bootstrap/Table'
 
 const TableHeader = () => {
     return (
@@ -24,14 +25,14 @@ const TableBody = props => {
     return <tbody>{rows}</tbody>
 }
 
-const Table = (props) => {
+const InfoTable = (props) => {
     const { readingData, removeReading } = props;
         return (
-            <table>
+            <Table bordered hover>
                 <TableHeader />
                 <TableBody readingData={ readingData } removeReading={removeReading} />
-            </table>
+            </Table>
         )
 }
 
-export default Table;
+export default InfoTable;
