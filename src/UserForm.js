@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 class UserForm extends Component {
     constructor(props) {
@@ -32,23 +33,17 @@ class UserForm extends Component {
         const { date, oxygen } = this.state;
 
         return (
-            <form onSubmit={this.onFormSubmit}>
-                <label htmlFor="date">Date</label>
-                <input
-                    type="text"
-                    name="date"
-                    id="date"
-                    value={date}
-                    onChange={this.handleChange} />
-                <label htmlFor="oxygen">Oxygen</label>
-                <input 
-                    type="number"
-                    name="oxygen"
-                    id="oxygen"
-                    value={oxygen}
-                    onChange={this.handleChange} />
+            <Form onSubmit={this.onFormSubmit}>
+                <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Label>Enter the Date Below:</Form.Label>
+                    <Form.Control size="lg" type="text" name="date" id="date" value={date} onChange={this.handleChange} /> 
+                </Form.Group>
+                <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Label>Enter the Oxygen % Below:</Form.Label>
+                    <Form.Control size="lg" type="text" name="oxygen" id="oxygen" value={oxygen} onChange={this.handleChange} /> 
+                </Form.Group>
                 <Button type="submit">Submit</Button>
-            </form>
+            </Form>
         )
     }
 }
