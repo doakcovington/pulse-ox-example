@@ -18,10 +18,15 @@ const TableHeader = () => {
 //inline ternary operator to line 24
 const TableBody = props => {
     const rows  = props.readingData.map((row, index) => {
+        let oxStyle = {
+            background: 'red',
+            color: 'white',
+            weight: 'bold'
+        }
         return (
             <tr key={index}>
                 <td>{row.date}</td>
-                <td>{row.oxygen}</td> 
+                <td style={(row.oxygen <= 92 ? oxStyle : console.log('false'))}>{row.oxygen}</td> 
                 <td><Button variant="danger" onClick={() => props.removeReading(index)}>Delete</Button></td>
             </tr>
         )
@@ -35,9 +40,10 @@ const InfoTable = (props) => {
             <Table bordered hover>
                 <TableHeader />
                 <TableBody readingData={ readingData } removeReading={removeReading} />
-                <Alert variant="danger">This is an error alert — check it out!</Alert>
             </Table>
         )
 }
 
 export default InfoTable;
+
+//<Alert variant="danger">This is an error alert — check it out!</Alert>
