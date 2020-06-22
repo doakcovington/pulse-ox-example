@@ -36,7 +36,7 @@ class UserForm extends Component {
             <Form onSubmit={this.onFormSubmit}>
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Enter the Date Below:</Form.Label>
-                    <Form.Control size="lg" type="text" name="date" id="date" value={date} onChange={this.handleChange} /> 
+                    <Form.Control size="lg" type="date" name="date" id="date" value={date} onChange={this.handleChange} /> 
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Enter the Oxygen % Below:</Form.Label>
