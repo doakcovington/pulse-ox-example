@@ -40,7 +40,7 @@ class UserForm extends Component {
                 </Form.Group>
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Enter the Oxygen % Below:</Form.Label>
-                    <Form.Control size="lg" type="text" name="oxygen" id="oxygen" value={oxygen} onChange={this.handleChange} /> 
+                    <Form.Control size="lg" type="number" name="oxygen" id="oxygen" value={oxygen} onChange={this.handleChange} /> 
                 </Form.Group>
                 <Button type="submit">Submit</Button>
             </Form>

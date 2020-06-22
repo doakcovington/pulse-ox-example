@@ -18,7 +18,7 @@ const TableHeader = () => {
 //inline ternary operator to line 24
 const TableBody = props => {
     const rows  = props.readingData.map((row, index) => {
-        let oxStyle = {
+        let redOxStyle = {
             background: 'red',
             color: 'white',
             weight: 'bold'
@@ -26,7 +26,7 @@ const TableBody = props => {
         return (
             <tr key={index}>
                 <td>{row.date}</td>
-                <td style={(row.oxygen <= 92 ? oxStyle : console.log('false'))}>{row.oxygen}</td> 
+                <td style={(row.oxygen <= 92 ? redOxStyle : console.log('false'))}>{row.oxygen}</td> 
                 <td><Button variant="danger" onClick={() => props.removeReading(index)}>Delete</Button></td>
             </tr>
         )

@@ -5,7 +5,6 @@ import Info from './Info'
 import ls from 'local-storage'
 import './index.css'
 import Container from 'react-bootstrap/Container';
-import Jumbotron from 'react-bootstrap/Jumbotron'
 
 
 class App extends Component {
@@ -24,6 +23,12 @@ class App extends Component {
         localStorage.setItem('readings', JSON.stringify(nextState.readings));
     }
 
+
+    componentDidMount() {
+        const rememberReadings = localStorage.getItem('rememberReadings');
+        this.setState({rememberReadings});
+    }
+
     removeReading = index => {
         const { readings } = this.state;
     
@@ -38,10 +43,6 @@ class App extends Component {
         this.setState({ readings: [...this.state.readings, reading] })
     }
 
-    //change background color to red if oxygen < 92
-    changeColor = () => {
-        let color = document.getElementById('root')
-    }
 
     render () {
         const { readings } = this.state
