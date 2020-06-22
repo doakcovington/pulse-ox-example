@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
+import { format } from 'date-fns'
 
 const TableHeader = () => {
     return (
@@ -25,7 +25,7 @@ const TableBody = props => {
         }
         return (
             <tr key={index}>
-                <td>{row.date}</td>
+                <td>{format(new Date(row.date), 'MM/dd/yyyy')}</td>
                 <td style={(row.oxygen <= 92 ? redOxStyle : console.log('false'))}>{row.oxygen}</td> 
                 <td><Button variant="danger" onClick={() => props.removeReading(index)}>Delete</Button></td>
             </tr>
